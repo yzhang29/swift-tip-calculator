@@ -16,21 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var tipPercentageLabel: UILabel!
     var defaultTip = 0
-    var tipPercentage = 0.0
+    var tipPercentage = 1.0
     var tipPercentages = [0.18, 0.20, 0.22]
+    var billAmount = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         billField.becomeFirstResponder()
-        var defaultTip = getDefaultTipPercentage()
-        if(defaultTip<=0){
-            defaultTip = 18
-        }
-        tipPercentageLabel.text=String(format: "%d%%", defaultTip);
-        tipPercentage = Double(defaultTip * 0.01)
+        getDefaultTipPercentage()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        getDefaultTipPercentage()
+        calculate(billAmount, tipPercentage: tipPercentage)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,10 +41,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
-         tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        var billAmount = NSString(string: billField.text).doubleValue
+        println("On Edit Change")
+        billAmount = NSString(string: billField.text).doubleValue
         calculate(billAmount, tipPercentage: tipPercentage)
         
+    }
+    @IBAction func onSelectChanged(sender: AnyObject) {
+        tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        calculate(billAmount, tipPercentage: tipPercentage)
     }
     
     func calculate(billAmount:Double, tipPercentage:Double){
@@ -56,10 +63,15 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func getDefaultTipPercentage()->Int{
+    func getDefaultTipPercentage(){
         var defaults = NSUserDefaults.standardUserDefaults()
         var intValue = defaults.integerForKey("tip_percentage")
-        return intValue
+        if(intValue<=0){
+            intValue = 18
+        }
+        tipPercentageLabel.text=String(format: "%d%%", intValue);
+        tipPercentage = Double(intValue) * 0.01
+        println(NSString(format:"%.2f", tipPercentage))
     }
-}
 
+}
