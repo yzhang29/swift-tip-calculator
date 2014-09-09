@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var tipPercentageLabel: UILabel!
     var defaultTip = 0
+    var tipPercentage = 0.0
     var tipPercentages = [0.18, 0.20, 0.22]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
             defaultTip = 18
         }
         tipPercentageLabel.text=String(format: "%d%%", defaultTip);
+        tipPercentage = Double(defaultTip * 0.01)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,15 +38,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
-        var tipPercentage = Double(defaultTip * 0.01)
          tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         var billAmount = NSString(string: billField.text).doubleValue
+        calculate(billAmount, tipPercentage: tipPercentage)
+        
+    }
+    
+    func calculate(billAmount:Double, tipPercentage:Double){
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
-        
         tipLabel.text = String(format: "$%.2f", tip);
         totalLabel.text = String(format: "$%.2f", total)
-        
+        tipPercentageLabel.text=String(format: "%d%%", Int(tipPercentage*100));
     }
 
     @IBAction func onTap(sender: AnyObject) {
