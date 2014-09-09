@@ -22,6 +22,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let image1 = UIImage(named: "background")
+        let imageview = UIImageView(image: image1)
+        imageview.frame = self.view.bounds
+        imageview.contentMode = UIViewContentMode.ScaleAspectFill
+        self.view.addSubview(imageview)
+        self.view.sendSubviewToBack(imageview)
+            
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         billField.becomeFirstResponder()

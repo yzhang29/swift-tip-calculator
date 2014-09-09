@@ -13,6 +13,8 @@
 		0CC0E27219B980C600CC43EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0E27119B980C600CC43EA /* Images.xcassets */; };
 		0CC0E27E19B980C600CC43EA /* tipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E27D19B980C600CC43EA /* tipsTests.swift */; };
 		0CC0E28819BE2ECF00CC43EA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E28719BE2ECF00CC43EA /* SettingsViewController.swift */; };
+		0CC0E28C19BFC0CA00CC43EA /* MarckScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0E28B19BFC0CA00CC43EA /* MarckScript-Regular.ttf */; };
+		0CC0E28E19BFC4FF00CC43EA /* PermanentMarker.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0E28D19BFC4FF00CC43EA /* PermanentMarker.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		0CC0E27C19B980C600CC43EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC0E27D19B980C600CC43EA /* tipsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsTests.swift; sourceTree = "<group>"; };
 		0CC0E28719BE2ECF00CC43EA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0CC0E28B19BFC0CA00CC43EA /* MarckScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MarckScript-Regular.ttf"; path = "../../../../Downloads/Marck_Script/MarckScript-Regular.ttf"; sourceTree = "<group>"; };
+		0CC0E28D19BFC4FF00CC43EA /* PermanentMarker.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PermanentMarker.ttf; path = ../../../../Downloads/Permanent_Marker/PermanentMarker.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		0CC0E26719B980C600CC43EA /* tips */ = {
 			isa = PBXGroup;
 			children = (
+				0CC0E28A19BFC0AC00CC43EA /* Resources */,
 				0CC0E28919BE2ED500CC43EA /* View Controllers */,
 				0CC0E26A19B980C600CC43EA /* AppDelegate.swift */,
 				0CC0E26C19B980C600CC43EA /* ViewController.swift */,
@@ -118,6 +123,15 @@
 				0CC0E28719BE2ECF00CC43EA /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0CC0E28A19BFC0AC00CC43EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0CC0E28D19BFC4FF00CC43EA /* PermanentMarker.ttf */,
+				0CC0E28B19BFC0CA00CC43EA /* MarckScript-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +216,8 @@
 			files = (
 				0CC0E27019B980C600CC43EA /* Main.storyboard in Resources */,
 				0CC0E27219B980C600CC43EA /* Images.xcassets in Resources */,
+				0CC0E28C19BFC0CA00CC43EA /* MarckScript-Regular.ttf in Resources */,
+				0CC0E28E19BFC4FF00CC43EA /* PermanentMarker.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
